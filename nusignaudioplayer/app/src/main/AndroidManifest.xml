@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.StoreAndForwardAudioPlayer"
+    android:installLocation="internalOnly">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACTION_MANAGE_OVERLAY_PERMISSION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name='android.permission.WAKE_LOCK' />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE"/>
+
+    <application
+        android:name=".application.AlenkaMedia"
+        android:hardwareAccelerated="false"
+        android:largeHeap="true"
+        android:allowBackup="true"
+        android:icon="@drawable/sbitlogo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:theme">
+
+        <receiver android:name=".receiver.LaunchReceiver"
+            android:enabled="true"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED">
+                </action>
+                <category android:name="android.intent.category.LAUNCHER">
+                </category>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+
+        </receiver>
+
+
+        <activity android:name=".activities.Splash_Activity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:theme="@style/MyHomeActivityTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activities.LoginActivity"
+            android:screenOrientation="landscape"
+            android:launchMode="singleTask"
+            android:theme="@style/MyHomeActivityTheme" />
+
+        <activity
+            android:name=".activities.HomeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:theme="@style/MyHomeActivityTheme"/>
+
+        <service android:name=".api_manager.DownloadService"></service>
+        <service android:name=".alarm_manager.ApplicationChecker">
+
+        </service>
+
+        <service android:name=".utils.FirebaseIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <service android:name=".utils.MyFirebaseMessagingService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <service android:name=".receiver.RebootJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE">
+
+        </service>
+
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="e6c331b8197c50c6baec93847a5afaca069a0fc0"
+            />
+    </application>
+
+</manifest>

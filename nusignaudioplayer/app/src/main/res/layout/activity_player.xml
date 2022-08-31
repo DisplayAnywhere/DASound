@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="#d3d3d3">
+
+    <com.github.rongi.rotate_layout.layout.RotateLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:angle="0">
+
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/relativepresent"
+        xmlns:local="http://schemas.android.com/apk/res-auto"
+        tools:context="com.alenkaaudioplayer.LoginActivity">
+
+        <com.devbrackets.android.exomedia.ui.widget.VideoView
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:useDefaultControls="false"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:visibility="invisible"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/playerToolbar"
+                layout="@layout/player_bar"></include>
+
+
+            <LinearLayout
+                android:id="@+id/layoutProgress"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:background="#ededed"
+                android:visibility="gone">
+
+                <ProgressBar
+                    android:id="@+id/pbProcessing"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="0.8"
+                    android:indeterminate="false"
+                    android:max="100"
+                    android:progressDrawable="@drawable/custom_pb" />
+
+                <TextView
+                    android:id="@+id/txtProgressPercent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:gravity="center"
+                    android:text="100 %"
+                    android:textColor="@color/player_background"
+                    android:textSize="@dimen/txtlarge" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <ListView
+                    android:id="@+id/listViewSongs"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="0dp"
+                    android:background="#ededed"
+                    android:divider="#d3d3d3"
+                    android:dividerHeight="@dimen/listview_dividerHeight" />
+
+            </LinearLayout>
+            <ListView
+                android:id="@+id/listViewPlaylists"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:divider="#d3d3d3"
+                android:background="#ededed"
+                android:dividerHeight="@dimen/listview_dividerHeight"
+                android:layout_marginBottom="25dp"
+                android:visibility="gone"/>
+
+            <com.google.android.exoplayer2.ui.SimpleExoPlayerView
+                android:id="@+id/simpleExoPlayer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </com.google.android.exoplayer2.ui.SimpleExoPlayerView>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/layoutNoPlaylist"
+        android:background="@color/player_background"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imgID"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logonusign"
+            android:padding="15dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+    </com.github.rongi.rotate_layout.layout.RotateLayout>
+
+    <fragment
+        android:id="@+id/fragment_navigation_drawer"
+        android:name="com.StoreAndForwardAudioPlayer.drawer.FragmentDrawer"
+        android:layout_width="260dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:layout="@layout/fragment_nav_drawer"
+        tools:layout="@layout/fragment_nav_drawer" />
+
+</android.support.v4.widget.DrawerLayout>

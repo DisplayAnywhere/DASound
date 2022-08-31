@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "827848973238",
+    "firebase_url": "https://myclaudaudioplayer.firebaseio.com",
+    "project_id": "myclaudaudioplayer",
+    "storage_bucket": "myclaudaudioplayer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827848973238:android:f152cac36a28deac",
+        "android_client_info": {
+          "package_name": "com.StoreAndForwardAudioPlayer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "827848973238-mh6gjmbv9r9jlnsrq7vusrtd6sjb5u45.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqaOjNpRh1whRbxP6RAhnW7rdTV1QJXEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "827848973238-mh6gjmbv9r9jlnsrq7vusrtd6sjb5u45.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
